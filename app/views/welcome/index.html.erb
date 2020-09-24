@@ -1,0 +1,11 @@
+<% @records.each do |record| %>
+  <% if record.class.name == 'House' %>
+    <%= render './houses/house', house: record %> 
+  <% end %>
+  <% if record.class.name == 'ComplexBuilding' %>
+    <%= render './complex_buildings/complex', complex_building: record %> 
+  <% end %>
+  <% if record.class.name == 'Commecial' %>
+    <%= render './commecials/commecial', commecial: record %> 
+  <% end %>
+<% end %>

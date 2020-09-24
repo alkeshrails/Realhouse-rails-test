@@ -1,2 +1,3 @@
 class Commecial < ApplicationRecord
+
 end
