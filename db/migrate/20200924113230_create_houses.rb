@@ -7,8 +7,7 @@ class CreateHouses < ActiveRecord::Migration[6.0]
       t.integer :sqmt
       t.integer :floors
       t.boolean :air_cond
-      t.string :price
-      t.string :float
+      t.float :price
 
       t.timestamps
     end

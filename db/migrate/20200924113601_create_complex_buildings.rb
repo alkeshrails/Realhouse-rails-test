@@ -5,8 +5,7 @@ class CreateComplexBuildings < ActiveRecord::Migration[6.0]
       t.string :address
       t.integer :units
       t.integer :sqmt
-      t.string :price
-      t.string :float
+      t.float :price
 
       t.timestamps
     end

@@ -19,8 +19,7 @@ ActiveRecord::Schema.define(version: 2020_09_24_114521) do
     t.integer "units"
     t.integer "sqmt"
     t.integer "parking"
-    t.string "price"
-    t.string "float"
+    t.float "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -30,8 +29,7 @@ ActiveRecord::Schema.define(version: 2020_09_24_114521) do
     t.string "address"
     t.integer "units"
     t.integer "sqmt"
-    t.string "price"
-    t.string "float"
+    t.float "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -43,8 +41,7 @@ ActiveRecord::Schema.define(version: 2020_09_24_114521) do
     t.integer "sqmt"
     t.integer "floors"
     t.boolean "air_cond"
-    t.string "price"
-    t.string "float"
+    t.float "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -7,8 +7,7 @@ class CreateCommecials < ActiveRecord::Migration[6.0]
       t.integer :units
       t.integer :sqmt
       t.integer :parking
-      t.string :price
-      t.string :float
+      t.float :price
 
       t.timestamps
     end
