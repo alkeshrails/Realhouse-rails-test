@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :managers
   resources :commecials
   resources :complex_buildings
   resources :houses
