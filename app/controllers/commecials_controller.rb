@@ -69,6 +69,6 @@ class CommecialsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def commecial_params
-      params.require(:commecial).permit(:owner, :address, :shops, :units, :sqmt, :parking, :price, :float)
+      params.require(:commecial).permit(:owner, :address, :shops, :units, :sqmt, :parking, :price)
     end
 end

@@ -69,6 +69,6 @@ class ComplexBuildingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def complex_building_params
-      params.require(:complex_building).permit(:owner, :address, :units, :sqmt, :price, :float)
+      params.require(:complex_building).permit(:owner, :address, :units, :sqmt, :price)
     end
 end
