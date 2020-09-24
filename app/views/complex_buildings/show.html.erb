@@ -1,29 +1,27 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = ComplexBuilding -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Owner:</strong>
-  <%= @complex_building.owner %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:owner) %>:</strong></dt>
+  <dd><%= @complex_building.owner %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:address) %>:</strong></dt>
+  <dd><%= @complex_building.address %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:units) %>:</strong></dt>
+  <dd><%= @complex_building.units %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sqmt) %>:</strong></dt>
+  <dd><%= @complex_building.sqmt %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:price) %>:</strong></dt>
+  <dd><%= @complex_building.price %></dd>
+</dl>
 
-<p>
-  <strong>Address:</strong>
-  <%= @complex_building.address %>
-</p>
-
-<p>
-  <strong>Units:</strong>
-  <%= @complex_building.units %>
-</p>
-
-<p>
-  <strong>Sqmt:</strong>
-  <%= @complex_building.sqmt %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @complex_building.price %>
-</p>
-
-<%= link_to 'Edit', edit_complex_building_path(@complex_building) %> |
-<%= link_to 'Back', complex_buildings_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              complex_buildings_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_complex_building_path(@complex_building), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              complex_building_path(@complex_building),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

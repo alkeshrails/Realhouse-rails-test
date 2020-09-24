@@ -1,24 +1,26 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Commecials</h1>
-
-<table>
+<%- model_class = Commecial -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Owner</th>
-      <th>Address</th>
-      <th>Shops</th>
-      <th>Units</th>
-      <th>Sqmt</th>
-      <th>Parking</th>
-      <th>Price</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:owner) %></th>
+      <th><%= model_class.human_attribute_name(:address) %></th>
+      <th><%= model_class.human_attribute_name(:shops) %></th>
+      <th><%= model_class.human_attribute_name(:units) %></th>
+      <th><%= model_class.human_attribute_name(:sqmt) %></th>
+      <th><%= model_class.human_attribute_name(:parking) %></th>
+      <th><%= model_class.human_attribute_name(:price) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @commecials.each do |commecial| %>
       <tr>
+        <td><%= link_to commecial.id, commecial_path(commecial) %></td>
         <td><%= commecial.owner %></td>
         <td><%= commecial.address %></td>
         <td><%= commecial.shops %></td>
@@ -26,14 +28,21 @@
         <td><%= commecial.sqmt %></td>
         <td><%= commecial.parking %></td>
         <td><%= commecial.price %></td>
-        <td><%= link_to 'Show', commecial %></td>
-        <td><%= link_to 'Edit', edit_commecial_path(commecial) %></td>
-        <td><%= link_to 'Destroy', commecial, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l commecial.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_commecial_path(commecial), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      commecial_path(commecial),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Commecial', new_commecial_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_commecial_path,
+            :class => 'btn btn-primary' %>

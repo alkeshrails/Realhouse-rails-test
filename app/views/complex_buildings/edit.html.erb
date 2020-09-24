@@ -1,6 +1,5 @@
-<h1>Editing Complex Building</h1>
-
-<%= render 'form', complex_building: @complex_building %>
-
-<%= link_to 'Show', @complex_building %> |
-<%= link_to 'Back', complex_buildings_path %>
+<%- model_class = ComplexBuilding -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+</div>
+<%= render :partial => 'form' %>

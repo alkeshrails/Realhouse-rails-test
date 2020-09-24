@@ -1,42 +1,62 @@
-<%= form_with(model: complex_building, local: true) do |form| %>
-  <% if complex_building.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(complex_building.errors.count, "error") %> prohibited this complex_building from being saved:</h2>
+<%= form_for @complex_building, :html => { :class => "form-horizontal complex_building" } do |f| %>
 
-      <ul>
-        <% complex_building.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+  <% if @complex_building.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@complex_building.errors.count, "error") %> prohibited this complex_building from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @complex_building.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
         <% end %>
-      </ul>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :owner %>
-    <%= form.text_field :owner %>
+  <div class="form-group">
+    <%= f.label :owner, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :owner, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:owner) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :address, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :address, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:address) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :units, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :units, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:units) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :sqmt, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :sqmt, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:sqmt) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :price, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :price, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:price) %>
   </div>
 
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                complex_buildings_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :units %>
-    <%= form.number_field :units %>
-  </div>
-
-  <div class="field">
-    <%= form.label :sqmt %>
-    <%= form.number_field :sqmt %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
