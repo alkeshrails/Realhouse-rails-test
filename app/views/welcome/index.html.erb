@@ -8,4 +8,30 @@
   <% if record.class.name == 'Commecial' %>
     <%= render './commecials/commecial', commecial: record %> 
   <% end %>
+  <button type="button" data-id="<%= record.id %>" data-type="<%= record.class.name %>" class="btn btn-primary purchase-btn">Purchase</button>
+  <hr>
 <% end %>
+
+
+
+<!-- Purchase Modal -->
+<div class="modal" id="purchaseModal" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close close-modal" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Purchase</h4>
+      </div>
+      <div class="modal-body">
+        <p>Enter your Email Addesss</p>
+        <input type="email" id="user-email" data-id="" data-type="" placeholder="Email" class="form-control">
+        <button type="button" class="btn btn-primary submit-user-email-btn">Submit</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default close-modal" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+    
+  </div>
+</div>
