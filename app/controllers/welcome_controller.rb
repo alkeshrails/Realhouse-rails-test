@@ -15,10 +15,7 @@ class WelcomeController < ApplicationController
       @data = ComplexBuilding.find_by_id(params[:id])
     end
 
-    if @data
-  end
-
-  private
-  def purchase_params
+    VeryLongTask.new.send_order_mail(params[:email], @data) if @data
+    redirect_to root_path
   end
 end
