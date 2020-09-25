@@ -11,9 +11,23 @@
 
   <body>
     <% if manager_signed_in? %>
-      <li>
-      <%= link_to('Logout', destroy_manager_session_path, method: :delete) %>        
-      </li>
+      <ul>
+        <li>
+        <%= link_to('Logout', destroy_manager_session_path, method: :delete) %>        
+        </li>
+
+        <li>
+        <%= link_to('House', houses_path) %>  
+        </li>
+
+        <li>
+        <%= link_to('Complex Building', complex_buildings_path) %>  
+        </li>
+
+        <li>
+        <%= link_to('Commecial', commecials_path) %>  
+        </li>
+      </ul>
     <% else %>
       <li>
       <%= link_to('Login', new_manager_session_path) %>  
