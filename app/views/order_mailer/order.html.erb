@@ -1,1 +1,11 @@
-<h1> Hii </h1>
+<h1> Hii You have new Order</h1>
+
+<% if @order.class.name == 'House' %>
+  <%= render './houses/house', house: @order %> 
+<% end %>
+<% if @order.class.name == 'ComplexBuilding' %>
+  <%= render './complex_buildings/complex', complex_building: @order %> 
+<% end %>
+<% if @order.class.name == 'Commecial' %>
+  <%= render './commecials/commecial', commecial: @order %> 
+<% end %>

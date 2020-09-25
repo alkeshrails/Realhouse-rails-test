@@ -34,7 +34,7 @@ $(document).ready(function(){
             "type": $('#user-email').attr("data-type")
         },
         function(data, status){
-            alert("Data: " + data + "\nStatus: " + status);
+            alert("your order plcae successfully, Owner will contact soon");
         });
     })
 })
