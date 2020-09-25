@@ -8,7 +8,7 @@ RSpec.describe "complex_buildings/show", type: :view do
       units: 2,
       sqmt: 3,
       price: "Price",
-      float: "Float"
+      manager: Manager.create(email: "test@gmail.com", password: "123456", password_confirmation: "123456")
     ))
   end
 
@@ -19,6 +19,5 @@ RSpec.describe "complex_buildings/show", type: :view do
     expect(rendered).to match(/2/)
     expect(rendered).to match(/3/)
     expect(rendered).to match(/Price/)
-    expect(rendered).to match(/Float/)
   end
 end

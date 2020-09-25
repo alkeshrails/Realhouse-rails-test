@@ -10,7 +10,7 @@ RSpec.describe "commecials/new", type: :view do
       sqmt: 1,
       parking: 1,
       price: "MyString",
-      float: "MyString"
+      manager: Manager.create(email: "test@gmail.com", password: "123456", password_confirmation: "123456")
     ))
   end
 
@@ -33,7 +33,6 @@ RSpec.describe "commecials/new", type: :view do
 
       assert_select "input[name=?]", "commecial[price]"
 
-      assert_select "input[name=?]", "commecial[float]"
     end
   end
 end

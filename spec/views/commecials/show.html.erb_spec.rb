@@ -10,7 +10,7 @@ RSpec.describe "commecials/show", type: :view do
       sqmt: 4,
       parking: 5,
       price: "Price",
-      float: "Float"
+      manager: Manager.create(email: "test@gmail.com", password: "123456", password_confirmation: "123456")
     ))
   end
 
@@ -23,6 +23,5 @@ RSpec.describe "commecials/show", type: :view do
     expect(rendered).to match(/4/)
     expect(rendered).to match(/5/)
     expect(rendered).to match(/Price/)
-    expect(rendered).to match(/Float/)
   end
 end

@@ -8,7 +8,7 @@ RSpec.describe "complex_buildings/new", type: :view do
       units: 1,
       sqmt: 1,
       price: "MyString",
-      float: "MyString"
+      manager: Manager.create(email: "test@gmail.com", password: "123456", password_confirmation: "123456")
     ))
   end
 
@@ -27,7 +27,6 @@ RSpec.describe "complex_buildings/new", type: :view do
 
       assert_select "input[name=?]", "complex_building[price]"
 
-      assert_select "input[name=?]", "complex_building[float]"
     end
   end
 end
