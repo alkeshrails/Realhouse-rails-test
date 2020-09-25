@@ -24,7 +24,7 @@ class HousesController < ApplicationController
   # POST /houses
   # POST /houses.json
   def create
-    @house = House.new(house_params)
+    @house = current_manager.houses.new(house_params)
 
     respond_to do |format|
       if @house.save
@@ -69,6 +69,6 @@ class HousesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def house_params
-      params.require(:house).permit(:owner, :address, :rooms, :sqmt, :floors, :air_cond, :price)
+      params.require(:house).permit(:owner, :address, :rooms, :sqmt, :floors, :air_cond, :price, :image)
     end
 end

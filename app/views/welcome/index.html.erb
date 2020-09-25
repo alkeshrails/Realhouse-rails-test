@@ -1,14 +1,25 @@
 <% @records.each do |record| %>
-  <% if record.class.name == 'House' %>
-    <%= render './houses/house', house: record %> 
-  <% end %>
-  <% if record.class.name == 'ComplexBuilding' %>
-    <%= render './complex_buildings/complex', complex_building: record %> 
-  <% end %>
-  <% if record.class.name == 'Commecial' %>
-    <%= render './commecials/commecial', commecial: record %> 
-  <% end %>
-  <button type="button" data-id="<%= record.id %>" data-type="<%= record.class.name %>" class="btn btn-primary purchase-btn">Purchase</button>
+  <div class="row">
+    <div class="col-md-6">
+      <% if record.class.name == 'House' %>
+        <%= render './houses/house', house: record %> 
+      <% end %>
+      <% if record.class.name == 'ComplexBuilding' %>
+        <%= render './complex_buildings/complex', complex_building: record %> 
+      <% end %>
+      <% if record.class.name == 'Commecial' %>
+        <%= render './commecials/commecial', commecial: record %> 
+      <% end %>
+    </div>
+
+    <div class="col-md-4">
+      <%= image_tag record.image_url if record.image.present? %>
+    </div>
+
+    <div class="col-md-2">
+      <button type="button" data-id="<%= record.id %>" data-type="<%= record.class.name %>" class="btn btn-primary purchase-btn">Purchase</button>
+    </div>  
+  </div>
   <hr>
 <% end %>
 

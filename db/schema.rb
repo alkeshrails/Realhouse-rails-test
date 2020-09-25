@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_24_114521) do
+ActiveRecord::Schema.define(version: 2020_09_25_111447) do
 
   create_table "commecials", force: :cascade do |t|
     t.string "owner"
@@ -22,6 +22,9 @@ ActiveRecord::Schema.define(version: 2020_09_24_114521) do
     t.float "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "manager_id"
+    t.string "image"
+    t.index ["manager_id"], name: "index_commecials_on_manager_id"
   end
 
   create_table "complex_buildings", force: :cascade do |t|
@@ -32,6 +35,9 @@ ActiveRecord::Schema.define(version: 2020_09_24_114521) do
     t.float "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "manager_id"
+    t.string "image"
+    t.index ["manager_id"], name: "index_complex_buildings_on_manager_id"
   end
 
   create_table "houses", force: :cascade do |t|
@@ -44,6 +50,9 @@ ActiveRecord::Schema.define(version: 2020_09_24_114521) do
     t.float "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "manager_id"
+    t.string "image"
+    t.index ["manager_id"], name: "index_houses_on_manager_id"
   end
 
   create_table "managers", force: :cascade do |t|
@@ -58,4 +67,7 @@ ActiveRecord::Schema.define(version: 2020_09_24_114521) do
     t.index ["reset_password_token"], name: "index_managers_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "commecials", "managers"
+  add_foreign_key "complex_buildings", "managers"
+  add_foreign_key "houses", "managers"
 end

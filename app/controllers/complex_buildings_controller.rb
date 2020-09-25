@@ -24,7 +24,7 @@ class ComplexBuildingsController < ApplicationController
   # POST /complex_buildings
   # POST /complex_buildings.json
   def create
-    @complex_building = ComplexBuilding.new(complex_building_params)
+    @complex_building = current_manager.complex_buildings.new(complex_building_params)
 
     respond_to do |format|
       if @complex_building.save
@@ -69,6 +69,6 @@ class ComplexBuildingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def complex_building_params
-      params.require(:complex_building).permit(:owner, :address, :units, :sqmt, :price)
+      params.require(:complex_building).permit(:owner, :address, :units, :sqmt, :price, :image)
     end
 end

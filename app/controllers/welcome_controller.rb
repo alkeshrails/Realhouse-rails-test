@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
     @records = [House.all, ComplexBuilding.all, Commecial.all].flatten
     @records = @records.sort{|a,b| b[:created_at] <=> a[:created_at]}
   end
-  
+
   def purchase
     case params[:type]
     when 'House'
@@ -12,10 +12,13 @@ class WelcomeController < ApplicationController
     when 'ComplexBuilding'
       @data = ComplexBuilding.find_by_id(params[:id])
     when 'Commecial'
-      @data = ComplexBuilding.find_by_id(params[:id])
+      @data = Commecial.find_by_id(params[:id])
     end
 
-    VeryLongTask.new.send_order_mail(params[:email], @data) if @data
+    if @data
+      email = [params[:email], @data.manager.email]
+      VeryLongTask.new.send_order_mail(email, @data) 
+    end
     redirect_to root_path
   end
 end

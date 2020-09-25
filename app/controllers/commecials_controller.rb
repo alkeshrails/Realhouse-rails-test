@@ -24,7 +24,7 @@ class CommecialsController < ApplicationController
   # POST /commecials
   # POST /commecials.json
   def create
-    @commecial = Commecial.new(commecial_params)
+    @commecial = current_manager.commecials.new(commecial_params)
 
     respond_to do |format|
       if @commecial.save
@@ -69,6 +69,6 @@ class CommecialsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def commecial_params
-      params.require(:commecial).permit(:owner, :address, :shops, :units, :sqmt, :parking, :price)
+      params.require(:commecial).permit(:owner, :address, :shops, :units, :sqmt, :parking, :price, :image)
     end
 end
